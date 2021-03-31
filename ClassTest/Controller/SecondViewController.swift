@@ -10,16 +10,18 @@ import RxSwift
 import RxCocoa
 
 class SecondViewController: UIViewController {
+    
     fileprivate let pushSub = PublishSubject<(VGModel, IndexPath)>()
     var todoOB: Observable<(VGModel, IndexPath)> {
         return pushSub.asObservable()
     }
-    var model: VGModel!
+    var seModel: VGModel!
     var indxep: IndexPath!
     let disposeBag = DisposeBag()
    fileprivate var textF: UITextField = {
         let tf = UITextField()
-    tf.backgroundColor = .gray
+        tf.backgroundColor = .gray
+    tf.addTarget(self, action: #selector(textChange(textF:)), for: .valueChanged)
         return tf
     }()
     fileprivate var swit: UISwitch = {
@@ -47,25 +49,37 @@ class SecondViewController: UIViewController {
             make.right.equalTo(self.view).offset(-30)
         }
         
-        if let model = model {
+        if let model = seModel {
             textF.text = model.title
             swit.isOn = model.isFinished
         }else{
-            model = VGModel(title: "", isFinished: false)
+            seModel = VGModel(title: "", isFinished: false)
         }
         
-        textF.rx.text.subscribe(onNext: { (text) in
-            self.model.title = text ?? ""
-        })
-        .disposed(by: disposeBag)
-        swit.rx.isOn.subscribe(onNext: { (isOn) in
-            self.model.isFinished = isOn
+        
+//        textF.rx.text.subscribe(onNext: { [weak self](text) in
+//            self?.seModel.title = text ?? ""
+//        })
+//        .disposed(by: disposeBag)
+        swit.rx.isOn.subscribe(onNext: { [weak self](isOn) in
+//            self?.model.isFinished = isOn
         })
         .disposed(by: disposeBag)
     }
     
+    @objc func textChange(textF: String) {
+        self.seModel.title = textF
+    }
+    
     @objc func didDoneAciton() {
-        pushSub.onNext((model, indxep))
+        pushSub.onNext((seModel, indxep))
+        
         self.navigationController?.popViewController(animated: true)
     }
+    
+    deinit {
+        print("销毁了")
+    }
+    
 }
+

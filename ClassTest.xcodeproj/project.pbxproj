@@ -17,6 +17,7 @@
 		F8CB6ACD2612FE3F00A876DC /* LocalDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB6ACC2612FE3F00A876DC /* LocalDataCell.swift */; };
 		F8CB6AD02613065E00A876DC /* VGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB6ACF2613065E00A876DC /* VGModel.swift */; };
 		F8CB6AD32613182100A876DC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB6AD22613182100A876DC /* SecondViewController.swift */; };
+		F8CB6AD92614423E00A876DC /* CacheManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CB6AD82614423E00A876DC /* CacheManage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F8CB6ACC2612FE3F00A876DC /* LocalDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataCell.swift; sourceTree = "<group>"; };
 		F8CB6ACF2613065E00A876DC /* VGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGModel.swift; sourceTree = "<group>"; };
 		F8CB6AD22613182100A876DC /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		F8CB6AD82614423E00A876DC /* CacheManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				F8CB6AAE2612EC4900A876DC /* AppDelegate.swift */,
 				F8CB6AB02612EC4900A876DC /* SceneDelegate.swift */,
+				F8CB6AD82614423E00A876DC /* CacheManage.swift */,
 				F8CB6AD526143FF800A876DC /* Controller */,
 				F8CB6AD62614403000A876DC /* View */,
 				F8CB6AD72614407800A876DC /* Model */,
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8CB6AD32613182100A876DC /* SecondViewController.swift in Sources */,
+				F8CB6AD92614423E00A876DC /* CacheManage.swift in Sources */,
 				F8CB6AB32612EC4900A876DC /* ViewController.swift in Sources */,
 				F8CB6AAF2612EC4900A876DC /* AppDelegate.swift in Sources */,
 				F8CB6AD02613065E00A876DC /* VGModel.swift in Sources */,

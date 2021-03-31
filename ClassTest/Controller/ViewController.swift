@@ -31,7 +31,7 @@ class ViewController: UIViewController {
             make.edges.equalTo(UIEdgeInsets(top: 88, left: 0, bottom: 0, right: 0))
         }
         
-        dataSub = BehaviorSubject(value: dataArray)
+        dataSub = BehaviorSubject(value: CacheManage.manager.fetachModelFromTable())
         
         dataSub?.subscribe(onNext: { [weak self](items) in
             self?.dataArray = items
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         let vc = SecondViewController()
         
         if let model = model {
-            vc.model = model
+            vc.seModel = model
         }
         if let index = indxe {
             vc.indxep = index
@@ -62,8 +62,10 @@ class ViewController: UIViewController {
             
             if indexf.row == -1 {
                 self?.dataArray.append(itms)
+                CacheManage.manager.insertModelToTable(models: itms)
             }else{
                 self?.dataArray[indexf.row] = itms
+                CacheManage.manager.updateModelToTable(model: itms)
             }
             
             self?.dataSub?.onNext(self?.dataArray ?? [])
@@ -99,6 +101,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         dataSub?.onNext(dataArray)
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        self.tableView.reloadData()
+    }
     
 }
