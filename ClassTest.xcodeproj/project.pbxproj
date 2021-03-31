@@ -88,16 +88,40 @@
 			children = (
 				F8CB6AAE2612EC4900A876DC /* AppDelegate.swift */,
 				F8CB6AB02612EC4900A876DC /* SceneDelegate.swift */,
-				F8CB6AB22612EC4900A876DC /* ViewController.swift */,
-				F8CB6AD22613182100A876DC /* SecondViewController.swift */,
-				F8CB6ACC2612FE3F00A876DC /* LocalDataCell.swift */,
-				F8CB6ACF2613065E00A876DC /* VGModel.swift */,
+				F8CB6AD526143FF800A876DC /* Controller */,
+				F8CB6AD62614403000A876DC /* View */,
+				F8CB6AD72614407800A876DC /* Model */,
 				F8CB6AB42612EC4900A876DC /* Main.storyboard */,
 				F8CB6AB72612EC4D00A876DC /* Assets.xcassets */,
 				F8CB6AB92612EC4D00A876DC /* LaunchScreen.storyboard */,
 				F8CB6ABC2612EC4D00A876DC /* Info.plist */,
 			);
 			path = ClassTest;
+			sourceTree = "<group>";
+		};
+		F8CB6AD526143FF800A876DC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F8CB6AB22612EC4900A876DC /* ViewController.swift */,
+				F8CB6AD22613182100A876DC /* SecondViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F8CB6AD62614403000A876DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F8CB6ACC2612FE3F00A876DC /* LocalDataCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F8CB6AD72614407800A876DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8CB6ACF2613065E00A876DC /* VGModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

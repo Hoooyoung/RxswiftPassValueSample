@@ -94,7 +94,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return .delete
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        print("pp")
+//        print("pp")
+        dataArray.remove(at: indexPath.row)
+        dataSub?.onNext(dataArray)
+        
     }
     
     
