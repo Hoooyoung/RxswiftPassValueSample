@@ -52,8 +52,8 @@ class ViewController: UIViewController {
     fileprivate func pushToSecVc(model: VGModel?, indxe: IndexPath?) {
         let vc = SecondViewController()
         
-        if let model = model {
-            vc.seModel = model
+        if let kModel = model {
+            vc.seModel = kModel
         }
         if let index = indxe {
             vc.indxep = index

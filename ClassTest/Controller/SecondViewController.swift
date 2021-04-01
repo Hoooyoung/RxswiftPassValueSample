@@ -10,7 +10,8 @@ import RxSwift
 import RxCocoa
 
 class SecondViewController: UIViewController {
-    
+    var stringH = ""
+    var siwthcH = false
     fileprivate let pushSub = PublishSubject<(VGModel, IndexPath)>()
     var todoOB: Observable<(VGModel, IndexPath)> {
         return pushSub.asObservable()
@@ -21,7 +22,6 @@ class SecondViewController: UIViewController {
    fileprivate var textF: UITextField = {
         let tf = UITextField()
         tf.backgroundColor = .gray
-    tf.addTarget(self, action: #selector(textChange(textF:)), for: .valueChanged)
         return tf
     }()
     fileprivate var swit: UISwitch = {
@@ -56,22 +56,19 @@ class SecondViewController: UIViewController {
             seModel = VGModel(title: "", isFinished: false)
         }
         
-        
-//        textF.rx.text.subscribe(onNext: { [weak self](text) in
-//            self?.seModel.title = text ?? ""
-//        })
-//        .disposed(by: disposeBag)
+        textF.rx.text.subscribe(onNext: { [weak self](text) in
+            self?.stringH = text ?? ""
+        })
+        .disposed(by: disposeBag)
         swit.rx.isOn.subscribe(onNext: { [weak self](isOn) in
-//            self?.model.isFinished = isOn
+            self?.siwthcH = isOn
         })
         .disposed(by: disposeBag)
     }
     
-    @objc func textChange(textF: String) {
-        self.seModel.title = textF
-    }
-    
     @objc func didDoneAciton() {
+        seModel.title = stringH
+        seModel.isFinished = siwthcH
         pushSub.onNext((seModel, indxep))
         
         self.navigationController?.popViewController(animated: true)
