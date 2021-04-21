@@ -11,7 +11,6 @@ import WCDBSwift
 class VGModel: TableCodable {
     var title: String = ""
     var isFinished: Bool = false
-    
     init(title: String, isFinished: Bool) {
         self.title = title
         self.isFinished = isFinished

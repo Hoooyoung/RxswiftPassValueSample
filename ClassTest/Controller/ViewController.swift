@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         tableView.register(LocalDataCell.self, forCellReuseIdentifier: cellIdentifier)
         return tableView
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -73,8 +74,12 @@ class ViewController: UIViewController {
         .disposed(by: disposeBag)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
 
 }
+
+
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,13 +102,29 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 //        print("pp")
+        CacheManage.manager.deleteModelToTable(model: dataArray[indexPath.row])
         dataArray.remove(at: indexPath.row)
+        
         dataSub?.onNext(dataArray)
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        self.tableView.reloadData()
+        print("1 will appear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("1 did appear")
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("1 will disappear")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("1  did disappear")
     }
     
 }

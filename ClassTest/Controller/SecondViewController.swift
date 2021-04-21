@@ -28,7 +28,7 @@ class SecondViewController: UIViewController {
        let swithc = UISwitch()
         return swithc
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -78,5 +78,22 @@ class SecondViewController: UIViewController {
         print("销毁了")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("2 will appear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("2 did appear")
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("2 will disappear")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("2 did disappear")
+    }
 }
 
